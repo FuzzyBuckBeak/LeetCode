@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class TwoSum {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         var map: [Int: Int] = [:]
