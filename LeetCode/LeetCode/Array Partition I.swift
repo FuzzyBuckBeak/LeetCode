@@ -10,7 +10,11 @@ import Foundation
 
 class ArrayPartition1 {
     func arrayPairSum(_ nums: [Int]) -> Int {
-        let sortedArray = nums.sorted()
+        
+        //Note the differnce between sorted and sortedBy
+        // nums.sorted() -> return
+        //nums.sorted(by: <#T##(Int, Int) throws -> Bool#>)
+        var sortedArray = nums.sorted { $0 < $1 }
         var result: Int = 0
         
         for i in stride(from: 0, to: sortedArray.count, by: 2) {
