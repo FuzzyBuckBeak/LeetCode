@@ -19,4 +19,26 @@ class TwoSum {
         }
         return []
     }
+    
+    
+    func sumToTwoNumbersArray(_ nums: [Int], _ target: Int) -> [Int] {
+        for i in 0 ..< nums.count {
+            for j in i ..< nums.count {
+                if nums[i]+nums[j] == target {
+                    return [i, j]
+                }
+            }
+        }
+        return []
+    }
+    
+    func sumToTwoNumbers(_ nums: [Int], _ target: Int) -> [Int] {
+        for i in 0 ..< nums.count {
+            let value = target - nums[i]
+            if nums.contains(target - nums[i]) && nums.index(of: value) != i{
+                return [i, nums.index(of: value)!]
+            }
+        }
+        return []
+    }
 }
