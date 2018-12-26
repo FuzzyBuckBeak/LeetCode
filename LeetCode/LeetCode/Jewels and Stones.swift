@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Solution {
     func numJewelsInStones(_ J: String, _ S: String) -> Int {
         var jewels = 0
