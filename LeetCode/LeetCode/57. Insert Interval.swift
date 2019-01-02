@@ -18,6 +18,33 @@
  Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
  Output: [[1,2],[3,10],[12,16]]
  Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+ 
+ TestCases:
+    let first = Interval(1, 3)
+    let second = Interval(2, 6)
+    let third = Interval(8, 10)
+    let forth = Interval(15, 18)
+
+    let first = Interval(1, 4)
+    let second = Interval(5, 6)
+
+    let first = Interval(1, 4)
+    let second = Interval(1, 4)
+
+    let first = Interval(1, 4)
+    let second = Interval(0, 0)
+ 
+    let first = Interval(1, 4)
+    let second = Interval(0, 4)
+
+    let first = Interval(1, 4)
+    let second = Interval(0, 2)
+    let third = Interval(3, 5)
+ 
+     let first = Interval(2, 3)
+     let second = Interval(4, 5)
+     let third = Interval(6, 7)
+     let forth = Interval(8, 9)
  *******************************************************************************************/
 import Foundation
 
