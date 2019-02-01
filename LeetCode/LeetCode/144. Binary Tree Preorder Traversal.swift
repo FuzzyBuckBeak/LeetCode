@@ -31,7 +31,7 @@ class BinaryTree {
         internalPreOrder(root: root, result: &result)
         return result
     }
-    
+
     func internalPreOrder(root: TreeNode?, result: inout [Int]) {
         if root == nil { return }
         result.append(root!.value)
