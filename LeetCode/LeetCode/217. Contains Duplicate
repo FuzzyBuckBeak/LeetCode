@@ -1,0 +1,15 @@
+func containsDuplicate(_ nums: [Int]) -> Bool {
+        // //Solution 1: using Set
+        //  return Set(nums).count != nums.count
+        
+        //Solution 2: using Hashmap
+        var hashMap: [Int:Int] = [:]
+        for element in nums {
+            if let _ = hashMap[element] {
+                return true
+            } else {
+                hashMap[element] = 0
+            }
+        }
+        return false
+    }
