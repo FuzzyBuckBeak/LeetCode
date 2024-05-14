@@ -1,0 +1,27 @@
+func isAnagram(_ s: String, _ t: String) -> Bool {
+    guard s.count == t.count else { return false }
+
+    //Construct HashMap
+    var hashMap: [Character: Int] = [:]
+    for char in s {
+        if let value = hashMap[char] {
+            hashMap[char] = value + 1
+        } else {
+            hashMap[char] = 1
+        }
+    }
+    
+    for char in t {
+        if let value = hashMap[char] {
+           hashMap[char] = value - 1
+        } else {
+            return false
+        }
+    }
+    
+    for element in hashMap.values {
+        if element > 0 { return false }
+    }
+    
+    return true
+}
