@@ -3,12 +3,9 @@ func isAnagram(_ s: String, _ t: String) -> Bool {
 
     //Construct HashMap
     var hashMap: [Character: Int] = [:]
+    
     for char in s {
-        if let value = hashMap[char] {
-            hashMap[char] = value + 1
-        } else {
-            hashMap[char] = 1
-        }
+        hashMap[char, default: 0] += 1
     }
     
     for char in t {
