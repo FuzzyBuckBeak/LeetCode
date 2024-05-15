@@ -1,0 +1,18 @@
+func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+    var result: [(Int, Int)] = []
+    var freq: [Int: Int] = [:]
+    for n in nums {
+        freq[n, default: 0] += 1
+    }
+
+
+    for (key, value) in freq {
+        result.append((key, value))
+        if result.count > k {
+            result.sort { $0.1 < $1.1 }
+            result.removeFirst()
+        }
+    }
+
+    return result.map { $0.0 }
+}
