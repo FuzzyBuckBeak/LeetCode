@@ -1,0 +1,18 @@
+func isPalindrome(_ s: String) -> Bool {
+    
+    let trimmedInput = s.filter { $0.isLetter || $0.isNumber }
+    let value = Array(trimmedInput.lowercased())
+    var leftPointer = 0
+    var rightPointer = value.count - 1
+    
+    for _ in 0 ..< value.count {
+        if (value[leftPointer] != value[rightPointer]) {
+            return false
+        } else {
+            leftPointer += 1
+            rightPointer -= 1
+        }
+    }
+    
+    return true
+}
