@@ -1,1 +1,21 @@
+func longestConsecutive(_ nums: [Int]) -> Int {
+    let numset = Set(nums)
+    var longestSequence = 0
 
+    for element in nums {
+        if !(numset.contains(element - 1)) {
+            var currentelement = element
+            var currentSequence = 1
+            while (numset.contains(currentelement + 1)) {
+                currentelement += 1
+                currentSequence += 1
+            }
+        
+            longestSequence = max(longestSequence, currentSequence)
+        }
+    }
+
+    return longestSequence
+}
+
+//Check if the predecessor is in the set, if yes, skip  it. Else, this element is the starting of the sequence, find all consecutive elements. 
