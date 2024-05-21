@@ -1,1 +1,25 @@
-
+func isValidSudoku(_ board: [[Character]]) -> Bool {
+    var rowSet = Array(repeating: Set<Character>() , count: 9)
+    var colSet = Array(repeating: Set<Character>() , count: 9)
+    var box = Array(repeating: Set<Character>() , count: 9)
+    
+    for row in 0 ..< 9 {
+        for col in 0 ..< 9 {
+            let current = board[row][col]
+            
+            if current == "." { continue }
+            
+            if rowSet[row].contains(current) { return false }
+            rowSet[row].insert(current)
+            
+            if colSet[col].contains(current) { return false }
+            colSet[col].insert(current)
+            
+            let boxIndex = (row / 3) * 3 + (col / 3)
+            if box[boxIndex].contains(current) { return false }
+            box[boxIndex].insert(current)
+            
+        }
+    }
+    return true
+}
