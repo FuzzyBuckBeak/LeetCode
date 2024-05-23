@@ -1,0 +1,19 @@
+func maxArea(_ height: [Int]) -> Int {
+    var leftPointer = 0
+    var rightPointer = height.count - 1
+    var maxCapacity = Int.min
+    
+    while leftPointer < rightPointer {
+        let value = min(height[leftPointer], height[rightPointer])
+        let containerWidth = rightPointer - leftPointer
+        maxCapacity = max(maxCapacity, (value * containerWidth))
+        
+        if height[leftPointer] < height[rightPointer] {
+            leftPointer += 1
+        } else {
+            rightPointer -= 1
+        }
+    }
+    
+    return maxCapacity
+}
