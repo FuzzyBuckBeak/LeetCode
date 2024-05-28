@@ -1,3 +1,6 @@
+
+//O(n^2)
+
 func replaceElements(_ arr: [Int]) -> [Int] {
     var result: [Int] = []
     for i in 0 ..< arr.count {
@@ -11,7 +14,18 @@ func replaceElements(_ arr: [Int]) -> [Int] {
     return result
 }
 
-//O(n^2)
+
+func replaceElements(_ arr: [Int]) -> [Int] {
+    var result: [Int] = arr
+    var maxValue = -1
+    for i in (0 ..< arr.count).reversed() {
+        let current = result[i]
+        result[i] = maxValue
+        maxValue = max(maxValue, current)
+    }
+   
+    return result
+}
 
 
 
