@@ -1,0 +1,16 @@
+func canPlaceFlowers(_ flowerbed: [Int], _ n: Int) -> Bool {
+    var count = 0
+    var flowerbed = flowerbed
+    for i in 0 ..< flowerbed.count {
+        if flowerbed[i] == 0 {
+            let emptyLeft = (i == 0) || (flowerbed[i - 1] == 0)
+            let emptyright = ( i == flowerbed.count - 1) || (flowerbed[i+1] == 0 )
+            if emptyLeft  && emptyright {
+                count += 1
+                flowerbed[i] = 1
+            }
+        }
+    }
+    
+    return count >= n
+}
