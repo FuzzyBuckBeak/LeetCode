@@ -1,0 +1,20 @@
+func numUniqueEmails(_ emails: [String]) -> Int {
+    var resultSet: Set<String> = Set()
+    for email in emails {
+        let parts = email.split(separator: "@")
+        let local = parts[0]
+        let domain = parts[1]
+        print(local)
+        var processedString = ""
+        for char in local {
+            if char == "+" { break }
+            if char != "." {
+                processedString.append(char)
+            }
+        }
+        processedString = processedString + "@" + domain
+        resultSet.insert(processedString)
+    }
+    
+    return resultSet.count
+}
