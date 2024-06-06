@@ -1,0 +1,15 @@
+func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var hashMap: [Int: Int] = [:]
+        var resultMap: [Int: Int] = [:]
+        for elements in nums1 {
+            hashMap[elements, default: 0] += 1
+        }
+    
+        for elements in nums2 {
+            if let _ = hashMap[elements] {
+                resultMap[elements] = 1
+            }
+        }
+    
+        return Array(resultMap.keys)
+}
