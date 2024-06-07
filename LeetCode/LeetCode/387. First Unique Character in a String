@@ -1,0 +1,23 @@
+func firstUniqChar(_ s: String) -> Int {
+    
+    var uniqIndex = Int.max
+    var hashMap: [Character: Int] = [:]
+    
+    for (index, element) in s.enumerated() {
+        hashMap[element, default: 0] += 1
+    }
+    
+    //Filter all elements whose value of key is more than 1
+    hashMap = hashMap.filter { key, value in value == 1 }
+    if hashMap.isEmpty { return -1 }
+
+    //Out of the elements left, find the element in Array with least index
+    for (index, element) in s.enumerated() {
+        if hashMap[element] != nil {
+            uniqIndex = min(uniqIndex, index)
+        }
+    }
+    
+    return uniqIndex
+
+}
