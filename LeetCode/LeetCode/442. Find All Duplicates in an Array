@@ -1,0 +1,14 @@
+func findDuplicates(_ nums: [Int]) -> [Int] {
+    var result: [Int] = []
+    var nums = nums
+    for i in 0 ..< nums.count {
+       let index = abs(nums[i]) - 1
+        if nums[index] < 0 {
+            result.append(abs(nums[i]))
+        } else {
+           nums[index] = -nums[index]
+        }
+    }
+    print(nums)
+    return result
+}
