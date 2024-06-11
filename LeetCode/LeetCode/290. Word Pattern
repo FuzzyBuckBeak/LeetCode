@@ -1,0 +1,22 @@
+func wordPattern(_ pattern: String, _ s: String) -> Bool {
+    let words = s.split(separator: " ").map { String($0) }
+    guard pattern.count == words.count else { return false }
+
+    var charToWordMap: [Character: String] = [:]
+    var wordToCharMap: [String: Character] = [:]
+    
+    for (index, char) in pattern.enumerated() {
+        if let value = charToWordMap[char] {
+            if value != words[index] { return false }
+        } else {
+            charToWordMap[char] = words[index]
+        }
+        if let value = wordToCharMap[words[index]] {
+            if value != char { return false }
+        } else {
+            wordToCharMap[words[index]] = char
+        }
+    }
+    
+    return true
+}
