@@ -1,0 +1,23 @@
+func findDifference(_ nums1: [Int], _ nums2: [Int]) -> [[Int]] {
+        let set1 = Set(nums1)
+        let set2 = Set(nums2)
+    
+        var uniqueToNums1: [Int] = []
+        var uniqueToNums2: [Int] = []
+    
+    // Check each element in nums1
+        for num in nums1 {
+            if !set2.contains(num) && !uniqueToNums1.contains(num) {
+                uniqueToNums1.append(num)
+            }
+        }
+    
+    // Check each element in nums2
+        for num in nums2 {
+            if !set1.contains(num) && !uniqueToNums2.contains(num) {
+                uniqueToNums2.append(num)
+            }
+        }
+    
+        return [uniqueToNums1, uniqueToNums2]
+    }
