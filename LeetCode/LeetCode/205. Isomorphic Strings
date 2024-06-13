@@ -1,0 +1,26 @@
+func isIsomorphic(_ s: String, _ t: String) -> Bool {
+    guard s.count == t.count else { return false }
+    var s_to_t: [Character: Character] = [:]
+    var t_to_s: [Character: Character] = [:]
+    let sArray = Array(s)
+    let tArray = Array(t)
+    
+    for i in 0 ..< sArray.count {
+        let sChar = sArray[i]
+        let tChar = tArray[i]
+        
+        if let mappedChar = s_to_t[sChar] {
+            if mappedChar != tChar { return false }
+        } else {
+            s_to_t[sChar] = tChar
+        }
+        
+        if let mappedChar = t_to_s[tChar] {
+            if mappedChar != sChar { return false }
+        } else {
+            t_to_s[tChar] = sChar
+        }
+    }
+    
+    return true
+}
