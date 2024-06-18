@@ -1,3 +1,14 @@
-    func longestCommonPrefix(_ strs: [String]) -> String {
-        
+func longestCommonPrefix(_ strs: [String]) -> String {
+    guard let firstString = strs.first else { return "" }
+    
+    for (i, char) in firstString.enumerated() {
+        for string in strs {
+            let index = string.index(string.startIndex, offsetBy: i)
+            if (i >= string.count || string[index] != char) {
+                return String(firstString.prefix(i))
+            }
+        }
     }
+    
+    return firstString
+}
