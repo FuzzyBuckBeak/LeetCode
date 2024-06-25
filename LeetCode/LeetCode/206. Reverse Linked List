@@ -1,1 +1,14 @@
+class ListNode: CustomStringConvertible {
+    var description: String {
+        return String(self.val)
+    }
+    
+    var val: Int
+    var next: ListNode?
+    
+    init(_ val: Int, next: ListNode?) {
+        self.val = val
+        self.next = next
+    }
+}
 
