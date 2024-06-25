@@ -12,3 +12,20 @@ class ListNode: CustomStringConvertible {
     }
 }
 
+
+class LinkedList {
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        var prevNode: ListNode? = nil
+        var currentNode = head
+        var nextNode: ListNode? = nil
+        
+        while (currentNode != nil ) {
+            nextNode = currentNode?.next
+            currentNode?.next = prevNode
+            prevNode = currentNode
+            currentNode = nextNode
+        }
+        return prevNode
+    }
+}
+
