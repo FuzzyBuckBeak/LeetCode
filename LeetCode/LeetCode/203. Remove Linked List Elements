@@ -1,0 +1,41 @@
+class ListNode: CustomStringConvertible, Equatable {
+    static func == (lhs: ListNode, rhs: ListNode) -> Bool {
+        return lhs === rhs
+    }
+    
+    var description: String {
+        return String(self.val)
+    }
+    
+    var val: Int
+    var next: ListNode?
+
+    init(_ val: Int, next: ListNode?) {
+        self.val = val
+        self.next = next
+    }
+}
+
+class LinkedList {    
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        var currentNode: ListNode? = head
+        var prevNode: ListNode? = nil
+        var head = head
+        while (currentNode != nil) {
+            if currentNode?.val == val {
+                if currentNode === head {
+                    currentNode = currentNode?.next
+                    head = currentNode
+                } else {
+                    prevNode?.next = currentNode?.next
+                    currentNode = currentNode?.next
+                }
+            } else {
+                
+                prevNode = currentNode
+                currentNode = currentNode?.next
+            }
+        }
+        return head
+    }
+}
