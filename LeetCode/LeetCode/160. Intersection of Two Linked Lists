@@ -1,1 +1,48 @@
-
+    func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+        var pointerA = headA
+        var pointerB = headB
+        var lenA = 0
+        var lenB = 0
+        
+        // Calculate lengths of listA and listB
+        var currentA = headA
+        while currentA != nil {
+            lenA += 1
+            currentA = currentA?.next
+        }
+        
+        var currentB = headB
+        while currentB != nil {
+            lenB += 1
+            currentB = currentB?.next
+        }
+        
+        // Reset pointers to the heads of lists
+        pointerA = headA
+        pointerB = headB
+        
+        // Adjust starting point if lists have different lengths
+        if lenA > lenB {
+            for _ in 0..<(lenA - lenB) {
+                pointerA = pointerA?.next
+            }
+        } else if lenB > lenA {
+            for _ in 0..<(lenB - lenA) {
+                pointerB = pointerB?.next
+            }
+        }
+        
+        // Traverse both lists until intersection point is found
+        while pointerA !== pointerB {
+            pointerA = pointerA?.next
+            pointerB = pointerB?.next
+            
+            // If no intersection found
+            if pointerA == nil && pointerB == nil {
+                return nil
+            }
+            
+        }
+        
+        return pointerA // Return intersection node
+    }
