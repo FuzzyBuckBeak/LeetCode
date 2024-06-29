@@ -1,0 +1,36 @@
+    func mergeInBetween(_ list1: ListNode?, _ a: Int, _ b: Int, _ list2: ListNode?) -> ListNode? {
+            guard let list1 = list1, let list2 = list2 else {
+                return nil
+            }
+            
+            // Create a dummy node to handle edge cases and simplify insertion
+            let dummy = ListNode(0, next: list1)
+            
+            var athNodePointer: ListNode? = dummy
+            var bthNodePointer: ListNode? = dummy
+            
+            // Move firstPointer to the node just before the ath node
+            for _ in 0..<a {
+                athNodePointer = athNodePointer?.next
+            }
+            
+            // Move bthNodePointer to the b-th node
+            for _ in 0...b {
+                bthNodePointer = bthNodePointer?.next
+            }
+            
+            // Locate the end of list2
+            var list2Pointer: ListNode? = list2
+            while list2Pointer?.next != nil {
+                list2Pointer = list2Pointer?.next
+            }
+            
+            // Connect firstPointer.next to list2
+            athNodePointer?.next = list2
+            
+            // Connect list2Pointer.next to bthNodePointer.next
+            list2Pointer?.next = bthNodePointer?.next
+            
+            // Return the updated list1 (dummy.next)
+            return dummy.next
+        }
