@@ -1,0 +1,12 @@
+func isSubsequence(_ s: String, _ t: String) -> Bool {
+        var currentIndex = s.startIndex
+    
+        for char in t {
+            
+            if currentIndex < s.endIndex && char == s[currentIndex] {
+                currentIndex = s.index(after: currentIndex)
+            }
+        }
+        
+        return currentIndex == s.endIndex
+}
