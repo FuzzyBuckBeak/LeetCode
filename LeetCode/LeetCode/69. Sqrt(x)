@@ -1,0 +1,19 @@
+func mySqrt(_ x: Int) -> Int {
+        if x < 2 {
+            return x
+        }
+    
+        var left = 0
+        var right = x
+        while left < right {
+            let mid = (left + right) / 2
+            if mid * mid == x {
+                return mid
+            } else if mid * mid < x {
+                left = mid + 1
+            } else {
+                right = mid
+            }
+        }
+        return left - 1
+    } 
