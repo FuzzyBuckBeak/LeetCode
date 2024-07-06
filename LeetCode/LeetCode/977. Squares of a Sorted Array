@@ -1,0 +1,23 @@
+func sortedSquares(_ nums: [Int]) -> [Int] {
+        var result = Array(repeating: 0, count: nums.count)
+        var left = 0
+        var right = nums.count - 1
+        var index = nums.count - 1
+        
+        
+        while (left <= right) {
+            let leftsquare = nums[left] * nums[left]
+            let rightsquare = nums[right] * nums[right]
+            if leftsquare > rightsquare {
+                result[index] = leftsquare
+                left += 1
+            } else {
+                result[index] = rightsquare
+                right -= 1
+            }
+            
+            index -= 1
+        }
+        
+        return result
+    }
