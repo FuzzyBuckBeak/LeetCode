@@ -1,1 +1,4 @@
 
+ func isPalindrome(_ head: ListNode?) -> Bool {
+        
+    }
