@@ -1,4 +1,5 @@
+//Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+ 
+func isPalindrome(_ head: ListNode?) -> Bool {
 
- func isPalindrome(_ head: ListNode?) -> Bool {
-        
-    }
+}
