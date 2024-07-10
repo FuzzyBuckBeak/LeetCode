@@ -1,5 +1,24 @@
 //Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
- 
-func isPalindrome(_ head: ListNode?) -> Bool {
 
+class ListNode: CustomStringConvertible, Equatable {
+    static func == (lhs: ListNode, rhs: ListNode) -> Bool {
+        return lhs === rhs
+    }
+    
+    var description: String {
+        return String(self.val)
+    }
+    
+    var val: Int
+    var next: ListNode?
+
+    init(_ val: Int, next: ListNode?) {
+        self.val = val
+        self.next = next
+    }
+
+ func isPalindrome(_ head: ListNode?) -> Bool {
+ 
+ }
 }
+
