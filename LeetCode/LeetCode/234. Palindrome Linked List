@@ -18,7 +18,8 @@ class ListNode: CustomStringConvertible, Equatable {
     }
 
  func isPalindrome(_ head: ListNode?) -> Bool {
- 
+
+    return true
  }
 }
 
