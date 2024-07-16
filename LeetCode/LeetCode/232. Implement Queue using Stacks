@@ -1,1 +1,23 @@
 
+class MyQueue {
+
+    init() {
+        
+    }
+    
+    func push(_ x: Int) {
+        
+    }
+    
+    func pop() -> Int {
+        
+    }
+    
+    func peek() -> Int {
+        
+    }
+    
+    func empty() -> Bool {
+        
+    }
+}
