@@ -1,1 +1,19 @@
 
+class MyHashMap {
+
+    init() {
+        
+    }
+    
+    func put(_ key: Int, _ value: Int) {
+        
+    }
+    
+    func get(_ key: Int) -> Int {
+        
+    }
+    
+    func remove(_ key: Int) {
+        
+    }
+}
