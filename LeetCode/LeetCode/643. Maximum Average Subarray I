@@ -1,0 +1,16 @@
+func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
+    var currentSum = 0.0
+    var maxSum = 0.0
+    
+    for index in 0 ..< k {
+        currentSum += Double(nums[index])
+    }
+    
+    maxSum = currentSum
+    for index in k ..< nums.count {
+        currentSum = Double(Int(currentSum) + nums[index] - nums[index - k])
+        maxSum = max(maxSum, currentSum)
+    }
+    
+    return maxSum / Double(k)
+}
